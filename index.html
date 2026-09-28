@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="EmbodiedCLBench: a benchmark for evaluating continual learning in self-evolving embodied agents.">
+  <meta name="keywords" content="EmbodiedCLBench, continual learning, embodied agents, compositional generalization, benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EmbodiedCLBench: Evaluating Continual Learning for Self-Evolving Embodied Agents</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260928b">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/index.js?v=20260928b"></script>
+</head>
+<body>
+
+<nav class="navbar site-navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item nav-title" href="#top">EmbodiedCLBench</a>
+    <button type="button" class="navbar-burger" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false" data-target="site-nav">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div id="site-nav" class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" href="#overview">Overview</a>
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#construction">Construction</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#BibTeX">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero publication-hero" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <p class="hero-eyebrow">the first benchmark in embodied simulation for evaluating the continual learning capability of self-evolving agents</p>
+          <h1 class="title publication-title"><span class="brand-name">EmbodiedCLBench:</span><span class="title-description">Evaluating Continual Learning<br class="desktop-break"> for <span class="title-phrase">Self-Evolving</span> Embodied Agents</span></h1>
+
+          <div class="publication-authors author-list">
+            <div class="author-row">
+            <span class="author-block">Jie Huang<sup>★,1,2</sup></span>
+            <span class="author-block">Yanan Chen<sup>★,1,2</sup></span>
+            <span class="author-block">Ruixun Liu<sup>★,1</sup></span>
+            <span class="author-block">Kaichen He<sup>1</sup></span>
+            </div>
+            <div class="author-row">
+            <span class="author-block">Xinyi He<sup>1</sup></span>
+            <span class="author-block">Rui Huang<sup>3</sup></span>
+            <span class="author-block">Zilong Zheng<sup>2</sup></span>
+            <span class="author-block">Zhenliang Zhang<sup>2</sup></span>
+            <span class="author-block">Yiwu Zhong<sup>1,2,†</sup></span>
+            </div>
+          </div>
+
+          <div class="publication-authors affiliation-list">
+            <span class="author-block"><sup>1</sup>School of Intelligence Science and Technology, Peking University</span>
+            <span class="author-block"><sup>2</sup>State Key Laboratory of General Artificial Intelligence, BIGAI, Beijing, China</span>
+            <span class="author-block"><sup>3</sup>University of Hong Kong</span>
+          </div>
+
+          <div class="author-notes">
+            <span>★ Equal contribution.</span>
+            <span>† Corresponding author.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section overview-section" id="overview">
+    <div class="container is-max-desktop">
+      <figure class="figure-panel overview-figure">
+        <img src="./static/images/paper/intro.png" width="2778" height="1191" fetchpriority="high" alt="EmbodiedCLBench overview showing compositional generalization from basic to advanced tasks">
+        <figcaption>
+          <strong>Core design:</strong> we operationalize continual learning through compositional generalization: an agent first completes simpler tasks to accumulate experience, then is tested on whether it can recombine the acquired skills to solve more complex, unseen tasks.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title">Abstract</h2>
+      <div class="content abstract-content">
+        <p>Continual learning requires models to accumulate past experience and transfer it to new tasks. Despite substantial research on continual learning, existing work remains largely confined to non-embodied settings, without extending to embodied environments.</p>
+        <p>To address this gap, we introduce <em>EmbodiedCLBench</em>, the first benchmark in embodied simulation for evaluating the continual learning capability of self-evolving agents. With compositional generalization as the core evaluation guidance, our benchmark evaluates whether agents can first learn from basic tasks and then re-combine the acquired skills to solve complex, unseen advanced tasks. Based on <em>EmbodiedCLBench</em>, we conduct extensive experiments across multiple agent harnesses and learning methods, revealing consistent limitations and distinctive behaviors.</p>
+        <p>Our results show that while advanced tasks can be hardly solved under zero-shot setting, the experience from basic tasks enables consistent improvement across different harnesses. The benefit of experience remains stable as the task complexity increases. However, this improvement does not scale accordingly with the number of learning samples, and current agents cannot extract meaningful information from additional experience. Collectively, our benchmark provides a valuable resource for future research, and our findings highlight continual learning as a fundamental yet underexplored capability and offer insights for designing more effective self-evolving agents in embodied environments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section construction-section" id="construction">
+    <div class="container is-max-widescreen">
+      <div class="section-heading">
+        <h2 class="title is-3 section-title">Benchmark Construction</h2>
+      </div>
+
+      <figure class="figure-panel construction-figure">
+        <img src="./static/images/paper/construction.png" width="2014" height="1004" decoding="async" alt="Overview of the EmbodiedCLBench construction process">
+        <figcaption>Overview of the construction process</figcaption>
+      </figure>
+
+      <figure class="figure-panel statistics-figure">
+        <img src="./static/images/paper/statistics.png" width="3072" height="1024" decoding="async" alt="EmbodiedCLBench benchmark statistics">
+        <figcaption>Benchmark statistics</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section results-section" id="results">
+    <div class="container is-max-widescreen">
+      <div class="section-heading">
+        <h2 class="title is-3 section-title">Results and Findings</h2>
+      </div>
+
+      <article class="result-panel main-results-panel">
+        <h3 class="title is-4 result-title">Main results.</h3>
+        <figure class="table-figure">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Main results: scroll horizontally to see all columns">
+            <table class="table is-fullwidth main-results-table" aria-label="Main results: success rate in percent">
+              <thead>
+                <tr>
+                  <th colspan="2">Success Rate (%)</th>
+                  <th scope="colgroup">Basic Task</th>
+                  <th colspan="3" scope="colgroup">Advanced Task</th>
+                </tr>
+                <tr>
+                  <th scope="col">Harness</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Zero-shot</th>
+                  <th scope="col">Zero-shot</th>
+                  <th scope="col">In-Context<br>Learning</th>
+                  <th scope="col">Skill<br>Learning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="harness-cell" rowspan="2" scope="rowgroup">Hermes</th>
+                  <td>Qwen3.8-Flash</td><td>58.9</td><td>8.0</td><td class="lift">44.0</td><td class="lift">33.0</td>
+                </tr>
+                <tr>
+                  <td>GPT5.6-Terra</td><td>53.0</td><td>11.0</td><td class="lift">16.0</td><td class="lift">34.0</td>
+                </tr>
+                <tr>
+                  <th class="harness-cell" rowspan="2" scope="rowgroup">OpenClaw</th>
+                  <td>Qwen3.8-Flash</td><td>50.6</td><td>5.0</td><td class="lift">35.0</td><td class="lift">38.0</td>
+                </tr>
+                <tr>
+                  <td>GPT5.6-Terra</td><td>47.6</td><td>12.0</td><td class="lift">39.0</td><td class="lift">22.0</td>
+                </tr>
+                <tr>
+                  <th class="harness-cell" rowspan="2" scope="rowgroup">Codex</th>
+                  <td>Qwen3.8-Flash</td><td>52.4</td><td>4.0</td><td class="lift">34.0</td><td class="lift">33.0</td>
+                </tr>
+                <tr>
+                  <td>GPT5.6-Terra</td><td>54.8</td><td>11.0</td><td class="lift">52.0</td><td class="lift">26.0</td>
+                </tr>
+                <tr>
+                  <th class="harness-cell" rowspan="2" scope="rowgroup">Claude Code</th>
+                  <td>Qwen3.8-Flash</td><td>42.9</td><td>3.0</td><td class="lift">27.0</td><td class="lift">31.0</td>
+                </tr>
+                <tr>
+                  <td>GPT5.6-Terra</td><td>51.8</td><td>9.0</td><td class="lift">31.0</td><td class="lift">25.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption class="table-caption">
+            <p>(1) <strong>Zero shot:</strong> the agent attempts tasks directly without prior experience. (2) <strong>In-Context Learning (ICL):</strong> the agent first completes two related basic tasks, retaining the full interaction history in context for the advanced task. (3) <strong>Skill Learning:</strong> the same learning phase as ICL, but the agent distills its experience into a concise skill summary, which replaces the raw trajectories at test time.</p>
+          </figcaption>
+        </figure>
+
+        <aside class="finding-box"><strong class="finding-label">Finding 1:</strong> While advanced tasks are hardly solvable under zero-shot setting, experience from basic tasks enables consistent improvement across different harnesses and models.</aside>
+      </article>
+
+      <article class="result-panel analysis-panel">
+        <div class="analysis-heading">
+          <h3 class="title is-4 result-title">EFFECT OF COMPOSITIONAL COMPLEXITY</h3>
+          <p class="analysis-question">Does more complex composition make continual learning harder?</p>
+        </div>
+        <figure class="figure-panel analysis-figure">
+          <img src="./static/images/results/compositional-complexity.png" width="2045" height="716" decoding="async" alt="Effect of compositional complexity on continual learning">
+        </figure>
+        <aside class="finding-box"><strong class="finding-label">Finding 2:</strong> In zero-shot setting, success rate decreases sharply as complexity increases. In contrast, the gain from experience remains stable, indicating that the benefit of continual learning is less sensitive to task difficulty.</aside>
+      </article>
+
+      <article class="result-panel analysis-panel samples-panel">
+        <div class="analysis-heading">
+          <h3 class="title is-4 result-title">Scaling with the Number of Learning Samples</h3>
+          <p class="analysis-question">Does more experience lead to a higher success rate on advanced tasks?</p>
+        </div>
+        <figure class="figure-panel analysis-figure samples-figure">
+          <img src="./static/images/results/learning-samples.png" width="1096" height="839" decoding="async" alt="Success rate scaling with the number of learning samples">
+        </figure>
+        <aside class="finding-box"><strong class="finding-label">Finding 3:</strong> Success rate does not scale accordingly with the number of learning samples. A single learning sample significantly improves performance, while additional samples yield no consistent further gain.</aside>
+      </article>
+    </div>
+  </section>
+
+  <section class="section bibtex-section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3 section-title">BibTeX</h2>
+      <pre><code>@misc{huang2026embodiedclbench,
+  title   = {EmbodiedCLBench: Evaluating Continual Learning
+             for Self-Evolving Embodied Agents},
+  author  = {Huang, Jie and Chen, Yanan and Liu, Ruixun and
+             He, Kaichen and He, Xinyi and Huang, Rui and
+             Zheng, Zilong and Zhang, Zhenliang and Zhong, Yiwu},
+  year    = {2026},
+  url     = {https://pku-value-lab.github.io/EmbodiedCLBench-homepage/},
+}</code></pre>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
