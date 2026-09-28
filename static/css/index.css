@@ -164,10 +164,6 @@ body {
   font-size: 0.88rem;
 }
 
-.author-notes span:first-child {
-  color: var(--coral);
-}
-
 .section {
   padding: 5.2rem 1.5rem;
 }
