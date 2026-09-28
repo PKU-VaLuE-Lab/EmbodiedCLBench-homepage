@@ -202,12 +202,6 @@ body {
   margin-bottom: 1.15rem;
 }
 
-.abstract-content em {
-  color: var(--accent-dark);
-  font-style: normal;
-  font-weight: 700;
-}
-
 .figure-panel {
   margin: 0;
 }
