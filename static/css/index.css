@@ -166,6 +166,24 @@ body {
   font-size: 0.88rem;
 }
 
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin-top: 1.35rem;
+}
+
+.publication-links .button {
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.publication-links .is-disabled {
+  opacity: 0.48;
+  pointer-events: none;
+}
+
 .section {
   padding: 5.2rem 1.5rem;
 }
